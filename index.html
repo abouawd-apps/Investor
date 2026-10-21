@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لماذا يخسر معظم الناس في سوق الأسهم؟ | Abouawd Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        danger: {
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        [dir="ltr"] body {
+            font-family: 'Inter', 'Cairo', sans-serif;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pulse-glow {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+        }
+        input[type="range"] {
+            accent-color: #10b981;
+        }
+        .tab-active {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #ffffff !important;
+            box-shadow: 0 8px 20px -4px rgba(16, 185, 129, 0.45);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/85 dark:bg-slate-900/85 glass-card border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Identity -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-chart-line text-xl"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                            Abouawd Studio
+                        </span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">09:30</span>
+                    </div>
+                    <h1 id="nav-title" class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white line-clamp-1">
+                        لماذا يخسر معظم الناس في سوق الأسهم؟
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Action Controls: Language + Theme + Video Link -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="https://youtu.be/GnSMB6dGoHs?si=LWejLID6kYPmnuJ4" target="_blank" rel="noopener noreferrer"
+                   class="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-600 dark:text-red-400 border border-red-500/20 text-sm font-bold transition">
+                    <i class="fa-brands fa-youtube text-base"></i>
+                    <span id="watch-yt-btn">مشاهدة على يوتيوب</span>
+                </a>
+
+                <!-- Language Switcher -->
+                <button id="lang-toggle" onclick="toggleLanguage()"
+                        class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm border border-slate-200 dark:border-slate-700 transition"
+                        title="Switch Language / تغيير اللغة">
+                    <i class="fa-solid fa-earth-americas text-emerald-500"></i>
+                    <span id="lang-label">English</span>
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" onclick="toggleTheme()"
+                        class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 flex items-center justify-center border border-slate-200 dark:border-slate-700 transition"
+                        title="Toggle Dark/Light Mode">
+                    <i id="theme-icon" class="fa-solid fa-sun text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white p-6 sm:p-10 shadow-2xl border border-slate-800">
+            <div class="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 text-xs sm:text-sm font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span id="hero-badge">تحليل سيكولوجية الأسواق المالية وإدارة المخاطر</span>
+                    </div>
+                    <h2 id="hero-title" class="text-2xl sm:text-4xl lg:text-5xl font-black leading-tight">
+                        لماذا يخسر <span class="text-rose-400 underline decoration-wavy decoration-rose-500/60">معظم الناس</span> في سوق الأسهم؟ وكيف تكون مع الأقلية الرابحة؟
+                    </h2>
+                    <p id="hero-desc" class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        سوق الأسهم ليس مجرد أرقام ورسوم بيانية، بل هو ساحة معركة نفسية بين الخوف والطمع. استكشف من خلال هذا التطبيق التفاعلي الأسباب الحقيقية وراء خسارة المستثمرين الأفراد، وجرّب بنفسك محاكاة قرارات التداول وحساب مخاطر المحفظة.
+                    </p>
+
+                    <!-- Quick Stat Pills -->
+                    <div class="grid grid-cols-3 gap-3 pt-3">
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="text-xl sm:text-2xl font-black text-rose-400">~85%</div>
+                            <div id="stat-1-label" class="text-xs text-slate-300 mt-1">يتأثرون بالتداول العاطفي والـ FOMO</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="text-xl sm:text-2xl font-black text-amber-400">100%</div>
+                            <div id="stat-2-label" class="text-xs text-slate-300 mt-1">ربح مطلوب لتعويض خسارة 50%</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="text-xl sm:text-2xl font-black text-emerald-400">7 قواعد</div>
+                            <div id="stat-3-label" class="text-xs text-slate-300 mt-1">لحماية رأس المال وبناء الثروة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Embed Card -->
+                <div class="lg:col-span-5">
+                    <div class="rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl">
+                        <div class="aspect-video w-full bg-slate-900 relative">
+                            <iframe id="yt-iframe"
+                                class="w-full h-full"
+                                src="https://www.youtube.com/embed/GnSMB6dGoHs?rel=0"
+                                title="لماذا يخسر معظم الناس في سوق الأسهم؟"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4 bg-slate-900/90 flex items-center justify-between gap-2 text-xs sm:text-sm">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="fa-solid fa-circle-play text-emerald-400 text-base"></i>
+                                <span id="video-caption">فيديو الحلقة: قناة Abouawd Studio</span>
+                            </div>
+                            <a href="https://youtu.be/GnSMB6dGoHs?si=LWejLID6kYPmnuJ4" target="_blank" rel="noopener noreferrer"
+                               class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
+                                <span id="open-direct-link">الرابط المباشر</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Navigation Tabs -->
+        <nav class="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <button onclick="switchTab('reasons')" id="tab-btn-reasons" class="tab-btn tab-active flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                <i class="fa-solid fa-layer-group"></i>
+                <span id="tab-reasons-text">الأسباب الـ 7 للخسارة</span>
+            </button>
+            <button onclick="switchTab('simulator')" id="tab-btn-simulator" class="tab-btn flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                <i class="fa-solid fa-wave-square"></i>
+                <span id="tab-simulator-text">محاكي سيكولوجية السوق</span>
+            </button>
+            <button onclick="switchTab('calculator')" id="tab-btn-calculator" class="tab-btn flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                <i class="fa-solid fa-calculator"></i>
+                <span id="tab-calculator-text">حاسبة تعويض الخسائر والمخاطر</span>
+            </button>
+            <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="tab-btn flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span id="tab-quiz-text">اختبار تشخيص المستثمر</span>
+            </button>
+        </nav>
+
+        <!-- TAB 1: THE 7 REASONS & VIDEO TIMELINE -->
+        <section id="tab-reasons" class="tab-panel space-y-8">
+            <!-- Filter & Search Bar -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <div>
+                    <h3 id="reasons-heading" class="text-xl font-extrabold text-slate-900 dark:text-white">
+                        الأفخاخ السبعة التي تدمر محافظ المستثمرين
+                    </h3>
+                    <p id="reasons-subheading" class="text-sm text-slate-500 dark:text-slate-400">
+                        اضغط على أي سبب لاستكشاف المثال الواقعي والحل العملي لتجنبه
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterReasons('all')" id="filter-all" class="reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white transition">
+                        الكل (7)
+                    </button>
+                    <button onclick="filterReasons('psychology')" id="filter-psychology" class="reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+                        العامل النفسي
+                    </button>
+                    <button onclick="filterReasons('strategy')" id="filter-strategy" class="reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+                        الاستراتيجية والمعرفة
+                    </button>
+                    <button onclick="filterReasons('risk')" id="filter-risk" class="reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+                        إدارة المخاطر
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reasons Dynamic Grid -->
+            <div id="reasons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Comparison Table: Losing Trader vs Winning Investor -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                <h3 id="comparison-title" class="text-xl sm:text-2xl font-extrabold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-scale-balanced text-emerald-500"></i>
+                    <span>مقارنة حاسمة: المتداول الخاسر مقابل المستثمر الناجح</span>
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-right rtl:text-right ltr:text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400">
+                                <th id="th-aspect" class="py-3.5 px-4 font-bold">وجه المقارنة</th>
+                                <th id="th-loser" class="py-3.5 px-4 font-bold text-rose-500">الأغلبية الخاسرة (المضارب العاطفي)</th>
+                                <th id="th-winner" class="py-3.5 px-4 font-bold text-emerald-500">الأقلية الرابحة (المستثمر الواعي)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-tbody" class="divide-y divide-slate-200 dark:divide-slate-800">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: MARKET PSYCHOLOGY SIMULATOR -->
+        <section id="tab-simulator" class="tab-panel hidden space-y-6">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span id="sim-badge" class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                            محاكاة تفاعلية حية
+                        </span>
+                        <h3 id="sim-title" class="text-xl sm:text-2xl font-extrabold mt-2">
+                            دورة المشاعر في سوق الأسهم: متى يشتري الخاسرون ومتى يبيعون؟
+                        </h3>
+                        <p id="sim-desc" class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                            حرك المؤشر عبر مراحل السوق أو اضغط على "تشغيل المحاكاة" لترى كيف يتصرف المستثمر العاطفي مقابل المستثمر المنضبط في كل مرحلة.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="playCycleAnimation()" id="sim-play-btn" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-emerald-600/20 transition">
+                            <i class="fa-solid fa-play"></i>
+                            <span id="sim-play-text">تشغيل المحاكاة</span>
+                        </button>
+                        <button onclick="resetCycleSimulator()" class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm transition">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Canvas Chart -->
+                <div class="relative w-full h-72 sm:h-96 bg-slate-950 rounded-2xl p-4 border border-slate-800 overflow-hidden">
+                    <canvas id="cycleCanvas" class="w-full h-full block cursor-pointer"></canvas>
+                </div>
+
+                <!-- Stage Slider Controls -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-bold text-slate-500 dark:text-slate-400">
+                        <span id="stage-start-label">بداية الدورة (التفاؤل)</span>
+                        <span id="stage-peak-label">القمة (النشوة والطمع - FOMO)</span>
+                        <span id="stage-bottom-label">القاع (الذعر والاستسلام)</span>
+                        <span id="stage-end-label">التعافي والنمو الحقيقي</span>
+                    </div>
+                    <input type="range" id="cycle-slider" min="0" max="7" value="3" step="1" oninput="updateSimulatorStage(this.value)" class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <!-- Stage Detail Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                        <div class="text-xs font-bold text-slate-400 uppercase" id="sim-card1-label">المرحلة الحالية</div>
+                        <div id="sim-stage-name" class="text-lg font-extrabold text-amber-500 mt-1">النشوة والاندفاع (Euphoria)</div>
+                        <p id="sim-stage-desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed"></p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-rose-500/5 border border-rose-500/20">
+                        <div class="text-xs font-bold text-rose-500 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-face-dizzy"></i>
+                            <span id="sim-card2-label">سلوك الأغلبية الخاسرة</span>
+                        </div>
+                        <p id="sim-loser-action" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mt-2 font-medium leading-relaxed"></p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
+                        <div class="text-xs font-bold text-emerald-500 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-brain"></i>
+                            <span id="sim-card3-label">سلوك المستثمر الذكي</span>
+                        </div>
+                        <p id="sim-winner-action" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mt-2 font-medium leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: LOSS RECOVERY & RISK MANAGEMENT CALCULATOR -->
+        <section id="tab-calculator" class="tab-panel hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Left Card: The Mathematical Trap of Losses -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+                    <div>
+                        <span id="calc1-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">
+                            الرياضيات القاسية للسوق
+                        </span>
+                        <h3 id="calc1-title" class="text-xl font-extrabold mt-2">
+                            حاسبة فخ تعويض الخسائر (Drawdown Trap)
+                        </h3>
+                        <p id="calc1-desc" class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                            أحد أهم أسباب الخسارة هو ترك الخسائر تتفاقم بدون وقف خسارة. اكتشف كم تحتاج من الربح فقط لتعود إلى نقطة الصفر!
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2">
+                                <span id="capital-label">رأس المال الأساسي ($):</span>
+                                <span id="capital-val" class="text-emerald-500">$10,000</span>
+                            </div>
+                            <input type="range" id="calc-capital" min="1000" max="100000" step="1000" value="10000" oninput="updateRiskCalculators()" class="w-full">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2">
+                                <span id="loss-pct-label">نسبة الخسارة في المحفظة (%):</span>
+                                <span id="loss-pct-val" class="text-rose-500 font-black">50%</span>
+                            </div>
+                            <input type="range" id="calc-loss" min="5" max="90" step="5" value="50" oninput="updateRiskCalculators()" class="w-full">
+                        </div>
+                    </div>
+
+                    <!-- Results Visual Box -->
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 space-y-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <div id="remaining-label" class="text-xs text-slate-400">الرصيد المتبقي بعد الخسارة</div>
+                                <div id="remaining-val" class="text-xl font-black text-slate-800 dark:text-white mt-1">$5,000</div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30">
+                                <div id="required-gain-label" class="text-xs text-rose-400">نسبة الربح المطلوبة للتعويض</div>
+                                <div id="required-gain-val" class="text-2xl font-black text-rose-500 mt-1">+100.0%</div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Bar Comparison -->
+                        <div class="space-y-2 pt-2">
+                            <div class="text-xs font-bold flex justify-between">
+                                <span id="bar-loss-label">حجم الخسارة</span>
+                                <span id="bar-recovery-label">صعوبة التعويض</span>
+                            </div>
+                            <div class="w-full h-4 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden flex">
+                                <div id="loss-bar" class="bg-amber-500 h-full transition-all duration-300" style="width: 33%"></div>
+                                <div id="recovery-bar" class="bg-rose-600 h-full transition-all duration-300" style="width: 67%"></div>
+                            </div>
+                            <p id="calc1-insight" class="text-xs text-slate-500 dark:text-slate-300 pt-1 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Card: Long-Term Compounding vs Emotional Trading -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+                    <div>
+                        <span id="calc2-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                            قوة الصبر والانضباط
+                        </span>
+                        <h3 id="calc2-title" class="text-xl font-extrabold mt-2">
+                            الوقت في السوق مقابل محاولة توقيت السوق
+                        </h3>
+                        <p id="calc2-desc" class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                            قارن بين مستثمر يلتزم بالاستثمار الشهري المنتظم (DCA) ومضارب يحاول القفز بين الأسهم ويفوّت أفضل أيام السوق.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2">
+                                <span id="monthly-label">الاستثمار الشهري المنتظم ($):</span>
+                                <span id="monthly-val" class="text-emerald-500">$300</span>
+                            </div>
+                            <input type="range" id="calc-monthly" min="50" max="2000" step="50" value="300" oninput="updateRiskCalculators()" class="w-full">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-bold mb-2">
+                                <span id="years-label">عدد سنوات الاستثمار:</span>
+                                <span id="years-val" class="text-emerald-500">10 سنوات</span>
+                            </div>
+                            <input type="range" id="calc-years" min="3" max="25" step="1" value="10" oninput="updateRiskCalculators()" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+                            <div id="patient-investor-label" class="text-xs font-bold text-emerald-500">المستثمر الصبور (عائد 10% سنوياً)</div>
+                            <div id="patient-investor-val" class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1">$61,453</div>
+                            <div id="patient-investor-sub" class="text-xs text-slate-500 dark:text-slate-400 mt-1">تراكم الأرباح وتوزيعات الأسهم</div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30">
+                            <div id="emotional-trader-label" class="text-xs font-bold text-rose-500">المضارب المتسرع (عائد -2% + عمولات)</div>
+                            <div id="emotional-trader-val" class="text-2xl font-black text-rose-600 dark:text-rose-400 mt-1">$32,410</div>
+                            <div id="emotional-trader-sub" class="text-xs text-slate-500 dark:text-slate-400 mt-1">تآكل رأس المال بسبب التسرع والعمولات</div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm flex items-start gap-3">
+                        <i class="fa-solid fa-lightbulb text-amber-400 text-lg mt-0.5"></i>
+                        <p id="calc2-summary" class="text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: INVESTOR MINDSET DIAGNOSTIC QUIZ -->
+        <section id="tab-quiz" class="tab-panel hidden">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm max-w-4xl mx-auto space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
+                    <div>
+                        <span id="quiz-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                            اختبار تفاعلي (5 مواقف حقيقية)
+                        </span>
+                        <h3 id="quiz-title" class="text-xl sm:text-2xl font-extrabold mt-2">
+                            هل أنت مستثمر واعٍ أم معرض لخسارة محفظتك؟
+                        </h3>
+                    </div>
+                    <button onclick="resetQuiz()" class="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold transition">
+                        <i class="fa-solid fa-arrows-rotate mx-1"></i>
+                        <span id="quiz-reset-btn">إعادة الاختبار</span>
+                    </button>
+                </div>
+
+                <!-- Quiz Questions Container -->
+                <div id="quiz-questions-container" class="space-y-6">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+
+                <!-- Quiz Result Banner -->
+                <div id="quiz-result-box" class="hidden p-6 rounded-2xl border-2 transition-all">
+                    <!-- Populated when user completes answers -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer with Mandatory Signature -->
+    <footer class="mt-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+                <span id="footer-channel" class="text-sm font-bold text-slate-600 dark:text-slate-300">
+                    مبني على محتوى قناة Abouawd Studio - "لماذا يخسر معظم الناس في سوق الأسهم؟"
+                </span>
+            </div>
+
+            <!-- Prominent Signature Requested by User -->
+            <div class="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-amber-500/10 border border-emerald-500/30 shadow-sm">
+                <p class="text-base sm:text-lg font-black tracking-wide text-slate-900 dark:text-white">
+                    تصميم محمد عوض خير بمساعدة <span class="gradient-text font-extrabold">Gemini 4 Argon</span>
+                </p>
+                <p id="footer-sub-credit" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Designed by Mohammed Awd Kheir with the assistance of Gemini 4 Argon
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Logic & Bilingual Data -->
+    <script>
+        let currentLang = 'ar';
+        let currentFilter = 'all';
+        let currentStageIndex = 3;
+        let simInterval = null;
+        let quizAnswers = {};
+
+        const i18n = {
+            ar: {
+                navTitle: 'لماذا يخسر معظم الناس في سوق الأسهم؟',
+                watchYtBtn: 'مشاهدة على يوتيوب',
+                langLabel: 'English',
+                heroBadge: 'تحليل سيكولوجية الأسواق المالية وإدارة المخاطر',
+                heroTitle: 'لماذا يخسر <span class="text-rose-400 underline decoration-wavy decoration-rose-500/60">معظم الناس</span> في سوق الأسهم؟ وكيف تكون مع الأقلية الرابحة؟',
+                heroDesc: 'سوق الأسهم ليس مجرد أرقام ورسوم بيانية، بل هو ساحة معركة نفسية بين الخوف والطمع. استكشف من خلال هذا التطبيق التفاعلي الأسباب الحقيقية وراء خسارة المستثمرين الأفراد، وجرّب بنفسك محاكاة قرارات التداول وحساب مخاطر المحفظة.',
+                stat1: 'يتأثرون بالتداول العاطفي والـ FOMO',
+                stat2: 'ربح مطلوب لتعويض خسارة 50%',
+                stat3: 'لحماية رأس المال وبناء الثروة',
+                videoCaption: 'فيديو الحلقة: قناة Abouawd Studio',
+                openDirectLink: 'الرابط المباشر',
+                tabReasons: 'الأسباب الـ 7 للخسارة',
+                tabSimulator: 'محاكي سيكولوجية السوق',
+                tabCalculator: 'حاسبة تعويض الخسائر والمخاطر',
+                tabQuiz: 'اختبار تشخيص المستثمر',
+                reasonsHeading: 'الأفخاخ السبعة التي تدمر محافظ المستثمرين',
+                reasonsSubheading: 'اضغط على أي سبب لاستكشاف المثال الواقعي والحل العملي لتجنبه',
+                filterAll: 'الكل (7)',
+                filterPsych: 'العامل النفسي',
+                filterStrat: 'الاستراتيجية والمعرفة',
+                filterRisk: 'إدارة المخاطر',
+                comparisonTitle: 'مقارنة حاسمة: المتداول الخاسر مقابل المستثمر الناجح',
+                thAspect: 'وجه المقارنة',
+                thLoser: 'الأغلبية الخاسرة (المضارب العاطفي)',
+                thWinner: 'الأقلية الرابحة (المستثمر الواعي)',
+                simBadge: 'محاكاة تفاعلية حية',
+                simTitle: 'دورة المشاعر في سوق الأسهم: متى يشتري الخاسرون ومتى يبيعون؟',
+                simDesc: 'حرك المؤشر عبر مراحل السوق أو اضغط على "تشغيل المحاكاة" لترى كيف يتصرف المستثمر العاطفي مقابل المستثمر المنضبط في كل مرحلة.',
+                simPlayText: 'تشغيل المحاكاة',
+                simStopText: 'إيقاف مؤقت',
+                stageStart: 'بداية الدورة (التفاؤل)',
+                stagePeak: 'القمة (النشوة والطمع - FOMO)',
+                stageBottom: 'القاع (الذعر والاستسلام)',
+                stageEnd: 'التعافي والنمو الحقيقي',
+                simCard1: 'المرحلة الحالية',
+                simCard2: 'سلوك الأغلبية الخاسرة',
+                simCard3: 'سلوك المستثمر الذكي',
+                calc1Badge: 'الرياضيات القاسية للسوق',
+                calc1Title: 'حاسبة فخ تعويض الخسائر (Drawdown Trap)',
+                calc1Desc: 'أحد أهم أسباب الخسارة هو ترك الخسائر تتفاقم بدون خطة. اكتشف كم تحتاج من الربح فقط لتعود إلى نقطة الصفر!',
+                capitalLabel: 'رأس المال الأساسي ($):',
+                lossPctLabel: 'نسبة الخسارة في المحفظة (%):',
+                remainingLabel: 'الرصيد المتبقي بعد الخسارة',
+                requiredGainLabel: 'نسبة الربح المطلوبة للتعويض',
+                barLossLabel: 'حجم الخسارة',
+                barRecoveryLabel: 'صعوبة التعويض',
+                calc2Badge: 'قوة الصبر والانضباط',
+                calc2Title: 'الوقت في السوق مقابل محاولة توقيت السوق',
+                calc2Desc: 'قارن بين مستثمر يلتزم بالاستثمار الشهري المنتظم (DCA) ومضارب يحاول القفز بين الأسهم ويفوّت أفضل أيام السوق.',
+                monthlyLabel: 'الاستثمار الشهري المنتظم ($):',
+                yearsLabel: 'عدد سنوات الاستثمار:',
+                patientLabel: 'المستثمر الصبور (عائد 10% سنوياً)',
+                patientSub: 'تراكم الأرباح وتوزيعات الأسهم',
+                emotionalLabel: 'المضارب المتسرع (عائد -2% + عمولات)',
+                emotionalSub: 'تآكل رأس المال بسبب التسرع والعمولات',
+                quizBadge: 'اختبار تفاعلي (5 مواقف حقيقية)',
+                quizTitle: 'هل أنت مستثمر واعٍ أم معرض لخسارة محفظتك؟',
+                quizResetBtn: 'إعادة الاختبار',
+                footerChannel: 'مبني على محتوى قناة Abouawd Studio - "لماذا يخسر معظم الناس في سوق الأسهم؟"',
+                trapLabel: 'الفخ الشائع:',
+                solutionLabel: 'الحل العملي:',
+                impactLabel: 'مستوى الخطورة:'
+            },
+            en: {
+                navTitle: 'Why Do Most People Lose in the Stock Market?',
+                watchYtBtn: 'Watch on YouTube',
+                langLabel: 'العربية',
+                heroBadge: 'Market Psychology & Risk Management Analysis',
+                heroTitle: 'Why Do <span class="text-rose-400 underline decoration-wavy decoration-rose-500/60">Most People</span> Lose in the Stock Market? And How to Join the Winning Minority?',
+                heroDesc: 'The stock market is not just numbers and charts—it is a psychological battlefield between fear and greed. Explore the real reasons retail investors lose money, simulate market cycles, and test your risk strategy.',
+                stat1: 'Driven by emotional trading & FOMO',
+                stat2: 'Gain needed to recover from a 50% loss',
+                stat3: 'Golden rules to protect & grow capital',
+                videoCaption: 'Episode Video: Abouawd Studio Channel',
+                openDirectLink: 'Direct Link',
+                tabReasons: 'The 7 Traps of Loss',
+                tabSimulator: 'Market Psychology Simulator',
+                tabCalculator: 'Loss & Risk Calculator',
+                tabQuiz: 'Investor Diagnostic Quiz',
+                reasonsHeading: 'The 7 Deadly Traps That Destroy Investor Portfolios',
+                reasonsSubheading: 'Explore each trap with real-world scenarios and actionable fixes',
+                filterAll: 'All (7)',
+                filterPsych: 'Psychology',
+                filterStrat: 'Strategy & Knowledge',
+                filterRisk: 'Risk Management',
+                comparisonTitle: 'Crucial Comparison: Losing Trader vs. Winning Investor',
+                thAspect: 'Dimension',
+                thLoser: 'Losing Majority (Emotional Speculator)',
+                thWinner: 'Winning Minority (Disciplined Investor)',
+                simBadge: 'Live Interactive Simulation',
+                simTitle: 'Market Emotions Cycle: When Do Losers Buy and Sell?',
+                simDesc: 'Move the slider across market phases or press "Run Simulation" to see how emotional traders react vs. smart investors.',
+                simPlayText: 'Run Simulation',
+                simStopText: 'Pause',
+                stageStart: 'Cycle Start (Optimism)',
+                stagePeak: 'Market Peak (Euphoria & FOMO)',
+                stageBottom: 'Market Bottom (Panic & Capitulation)',
+                stageEnd: 'Recovery & True Value Growth',
+                simCard1: 'Current Phase',
+                simCard2: 'Losing Majority Behavior',
+                simCard3: 'Smart Investor Behavior',
+                calc1Badge: 'Harsh Market Mathematics',
+                calc1Title: 'The Drawdown Recovery Trap Calculator',
+                calc1Desc: 'One of the biggest reasons people lose is letting losses run unchecked. See the exact gain required just to break even!',
+                capitalLabel: 'Initial Capital ($):',
+                lossPctLabel: 'Portfolio Loss Percentage (%):',
+                remainingLabel: 'Remaining Balance',
+                requiredGainLabel: 'Gain Required to Break Even',
+                barLossLabel: 'Loss %',
+                barRecoveryLabel: 'Recovery Effort',
+                calc2Badge: 'Power of Patience & Discipline',
+                calc2Title: 'Time in the Market vs. Timing the Market',
+                calc2Desc: 'Compare a disciplined investor using monthly Dollar-Cost Averaging (DCA) vs. an emotional trader chasing trends.',
+                monthlyLabel: 'Monthly Investment ($):',
+                yearsLabel: 'Investment Horizon (Years):',
+                patientLabel: 'Patient Investor (10% Annual Return)',
+                patientSub: 'Compounding growth & reinvested dividends',
+                emotionalLabel: 'Impulsive Trader (-2% Return + Fees)',
+                emotionalSub: 'Capital erosion from panic & commissions',
+                quizBadge: 'Interactive Assessment (5 Scenarios)',
+                quizTitle: 'Are You a Disciplined Investor or Vulnerable to Market Losses?',
+                quizResetBtn: 'Reset Quiz',
+                footerChannel: 'Based on Abouawd Studio video: "Why Do Most People Lose in the Stock Market?"',
+                trapLabel: 'The Common Trap:',
+                solutionLabel: 'Actionable Solution:',
+                impactLabel: 'Danger Level:'
+            }
+        };
+
+        const reasonsData = [
+            {
+                id: 1,
+                category: 'psychology',
+                icon: 'fa-fire-flame-curved',
+                color: 'rose',
+                danger: '95%',
+                time: '01:15',
+                ar: {
+                    title: '1. التداول العاطفي (الخوف والطمع)',
+                    trap: 'الشراء بدافع الطمع والخوف من فوات الفرصة (FOMO) عندما تكون الأسهم في قمتها، والبيع بدافع الذعر عند أول هبوط في السوق.',
+                    solution: 'ضع خطة مكتوبة لشروط الدخول والخروج قبل فتح الصفقة، والتزم بالاستثمار الدوري دون الالتفات للضجيج اليومي.'
+                },
+                en: {
+                    title: '1. Emotional Trading (Fear & Greed)',
+                    trap: 'Buying at the top driven by FOMO and greed when everyone is excited, then panic-selling at the bottom during market corrections.',
+                    solution: 'Write down your entry and exit rules before buying any stock, and automate periodic investments to bypass emotions.'
+                }
+            },
+            {
+                id: 2,
+                category: 'strategy',
+                icon: 'fa-users-slash',
+                color: 'amber',
+                danger: '90%',
+                time: '02:35',
+                ar: {
+                    title: '2. عقلية القطيع واتباع التوصيات العشوائية',
+                    trap: 'شراء أسهم بناءً على نصائح وسائل التواصل الاجتماعي أو "الترند" دون فهم نموذج عمل الشركة أو قوائمها المالية.',
+                    solution: 'لا تضع أموالك في شركة لا تفهم كيف تربح المال. عندما يتحدث الجميع عن سهم مضاربي، فغالباً قد فات أوان الدخول الآمن.'
+                },
+                en: {
+                    title: '2. Herd Mentality & Blind Tips',
+                    trap: 'Buying hyped stocks based on social media rumors or friends without understanding the company’s fundamentals or valuation.',
+                    solution: 'Never invest in a business you cannot explain in two minutes. When a speculative stock is everywhere on social media, smart money is already exiting.'
+                }
+            },
+            {
+                id: 3,
+                category: 'risk',
+                icon: 'fa-shield-halved',
+                color: 'rose',
+                danger: '92%',
+                time: '04:00',
+                ar: {
+                    title: '3. غياب إدارة المخاطر ووضع كل البيض في سلة واحدة',
+                    trap: 'المخاطرة بكامل رأس المال في سهم واحد أو قطاع واحد، أو التمسك بسهم خاسر ينهار أساسياً على أمل "أن يعود السعر".',
+                    solution: 'نوّع محفظتك بين قطاعات قوية، ولا تخاطر بأكثر من نسبة محددة في الصفقة الواحدة، وافهم الفرق بين هبوط السوق المؤقت وانهيار الشركة.'
+                },
+                en: {
+                    title: '3. Poor Risk Management & No Diversification',
+                    trap: 'Putting 100% of capital into a single speculative stock, or refusing to cut losses on a fundamentally broken business hoping it will bounce back.',
+                    solution: 'Diversify across strong sectors, size your positions conservatively, and distinguish between temporary market dips and failing companies.'
+                }
+            },
+            {
+                id: 4,
+                category: 'strategy',
+                icon: 'fa-bolt',
+                color: 'purple',
+                danger: '85%',
+                time: '05:15',
+                ar: {
+                    title: '4. وهم الثراء السريع والخلط بين الاستثمار والمقامرة',
+                    trap: 'التعامل مع سوق الأسهم كأنه كازينو لمضاعفة المال في أسبوع واحد، مما يدفع المتداول للمضاربة في أسهم الشركات الضعيفة (Penny Stocks).',
+                    solution: 'الاستثمار الحقيقي هو بناء ثروة تراكمية عبر السنوات. العائد المركب المستمر (10% - 15% سنوياً) يصنع ثروة حقيقية ومستدامة.'
+                },
+                en: {
+                    title: '4. Get-Rich-Quick Illusion & Gambling Mindset',
+                    trap: 'Treating the stock market like a casino to double money in days, leading people into high-risk penny stocks and speculative bubbles.',
+                    solution: 'Treat stocks as partial ownership in real businesses. Compounding steady returns over years is the proven path to wealth.'
+                }
+            },
+            {
+                id: 5,
+                category: 'risk',
+                icon: 'fa-scale-unbalanced-flip',
+                color: 'rose',
+                danger: '98%',
+                time: '06:30',
+                ar: {
+                    title: '5. التداول بالهامش والرافعة المالية والـأموال المقترضة',
+                    trap: 'استخدام القروض أو الرافعة المالية (Margin) أو أموال الاحتياجات الأساسية؛ أي تراجع بسيط في السوق يؤدي إلى تصفية المحفظة (Margin Call).',
+                    solution: 'استثمر فقط الفائض المالي الذي لا تحتاجه على المدى القصير، وابتعد تماماً عن الديون والرافعة المالية في الأسواق المتقلبة.'
+                },
+                en: {
+                    title: '5. Using Leverage, Margin & Borrowed Money',
+                    trap: 'Trading with borrowed funds, margin loans, or emergency savings. Even a normal 15% market dip can trigger a forced Margin Call liquidation.',
+                    solution: 'Only invest surplus capital you will not need for at least 3–5 years, and avoid leverage traps that wipe out accounts.'
+                }
+            },
+            {
+                id: 6,
+                category: 'psychology',
+                icon: 'fa-hourglass-end',
+                color: 'amber',
+                danger: '80%',
+                time: '07:45',
+                ar: {
+                    title: '6. الإفراط في التداول (Overtrading) ونفاد الصبر',
+                    trap: 'البيع والشراء المستمر يومياً ومحاولة اصطياد كل حركة صغيرة، مما يستنزف المحفظة في العمولات والأخطاء النفسية المتكررة.',
+                    solution: 'في الاستثمار، الكسل الذكي يتفوق على النشاط المفرط. شراء أصول ممتازة والاحتفاظ بها يتفوق على 90% من المضاربين اليوميين.'
+                },
+                en: {
+                    title: '6. Overtrading & Impatience',
+                    trap: 'Constantly buying and selling every day trying to time every tiny move, draining the portfolio through commissions and stress.',
+                    solution: 'In investing, patient inactivity beats hyperactive trading. Buying high-quality assets and holding them beats 90% of day traders.'
+                }
+            },
+            {
+                id: 7,
+                category: 'strategy',
+                icon: 'fa-compass-drafting',
+                color: 'blue',
+                danger: '88%',
+                time: '08:30',
+                ar: {
+                    title: '7. الاستثمار بدون خطة واضحة أو هدف زمني',
+                    trap: 'الدخول للسوق دون تحديد: هل أنا مستثمر طويل الأجل أم مضارب؟ وما هي خطتي إذا هبط السوق بنسبة 20% غداً؟',
+                    solution: 'حدد أفقك الزمني، ووزّع استثماراتك عبر الشراء المنتظم (DCA) في صناديق المؤشرات أو الشركات القيادية ذات التدفقات النقدية القوية.'
+                },
+                en: {
+                    title: '7. Investing Without a Clear Plan or Horizon',
+                    trap: 'Entering the market without defining your time horizon or knowing in advance what you will do if the market drops 20% tomorrow.',
+                    solution: 'Define your financial goals, use Dollar-Cost Averaging (DCA) into broad index funds or blue-chip leaders, and stay the course.'
+                }
+            }
+        ];
+
+        const comparisonRows = [
+            {
+                ar: { aspect: 'الدافع للشراء', loser: 'الضجة الإعلامية، توصيات الإنترنت، والخوف من فوات الفرصة (FOMO)', winner: 'دراسة القيمة العادلة للشركة، النمو المالي، وخطة استثمارية واضحة' },
+                en: { aspect: 'Buying Trigger', loser: 'Social media hype, rumors, and Fear Of Missing Out (FOMO)', winner: 'Fundamental valuation, cash flow growth, and a written plan' }
+            },
+            {
+                ar: { aspect: 'رد الفعل عند هبوط السوق', loser: 'الذعر والبيع بخسارة في القاع ثم الهروب من السوق', winner: 'الهدوء واستغلال التخفيضات لشراء أصول قوية بأسعار مغرية' },
+                en: { aspect: 'Reaction to Market Crashes', loser: 'Panic selling at the bottom and swearing off stocks forever', winner: 'Staying calm and buying quality companies at a discount' }
+            },
+            {
+                ar: { aspect: 'الأفق الزمني', loser: 'أيام أو أسابيع بحثاً عن ربح سريع', winner: 'سنوات طويلة للاستفادة من قوة العائد المركب' },
+                en: { aspect: 'Time Horizon', loser: 'Days or weeks chasing quick lottery-style gains', winner: 'Multi-year horizon harnessing the power of compounding' }
+            },
+            {
+                ar: { aspect: 'إدارة المخاطر', loser: 'التركيز في سهم واحد أو استخدام أموال مقترضة', winner: 'التنويع الذكي واستثمار الفائض المالي فقط' },
+                en: { aspect: 'Risk Management', loser: 'All-in on one hyped stock or using margin/borrowed money', winner: 'Smart diversification and investing only surplus capital' }
+            }
+        ];
+
+        const cycleStages = [
+            {
+                priceY: 0.65,
+                ar: {
+                    name: '1. التفاؤل الهادئ (Optimism)',
+                    desc: 'السوق يبدأ في التعافي تدريجياً بعد ركود سابق، الأسعار عادلة لكن معظم الناس لا يزالون مترددين.',
+                    loser: 'يتجاهل السوق تماماً لأنه لا يوجد ضجيج إعلامي حول الأسهم.',
+                    winner: 'يبني مراكزه بهدوء ويشتري الشركات القوية بأسعار معقولة.'
+                },
+                en: {
+                    name: '1. Quiet Optimism',
+                    desc: 'The market begins recovering steadily; valuations are fair, though the general public remains skeptical.',
+                    loser: 'Completely ignores the market because stocks are not trending in the news.',
+                    winner: 'Quietly accumulates shares in strong businesses at fair valuations.'
+                }
+            },
+            {
+                priceY: 0.45,
+                ar: {
+                    name: '2. الإثارة والحماس (Excitement)',
+                    desc: 'الأسعار ترتفع بقوة وتظهر قصص نجاح كثيرة في الإعلام، ويبدأ الجمهور بالاهتمام.',
+                    loser: 'يبدأ بمراقبة الأسهم التي تضاعفت ويتمنى لو أنه اشترى مبكراً.',
+                    winner: 'يستمر في خطته الاستثمارية المنتظمة دون اندفاع.'
+                },
+                en: {
+                    name: '2. Excitement & Momentum',
+                    desc: 'Prices rise noticeably and media outlets start reporting strong market gains.',
+                    loser: 'Watches stocks that already doubled and starts feeling FOMO.',
+                    winner: 'Continues regular scheduled investments without chasing hype.'
+                }
+            },
+            {
+                priceY: 0.25,
+                ar: {
+                    name: '3. النشوة والاندفاع الأعمى (Euphoria - القمة)',
+                    desc: 'الجميع يتحدث عن الأسهم! الأسعار متضخمة جداً فوق قيمتها الحقيقية والطمع في أقصى درجاته.',
+                    loser: 'يشتري بكل مدخراته (أو يقترض) في القمة خوفاً من فوات قطار الثراء السريع!',
+                    winner: 'يتوقف عن الشراء المندفع، ويجني جزءاً من الأرباح لتوفير سيولة نقدية.'
+                },
+                en: {
+                    name: '3. Euphoria & FOMO (Market Peak)',
+                    desc: 'Everyone is talking about stocks! Valuations are stretched to extremes and greed is at its peak.',
+                    loser: 'Goes all-in at the very top (often with borrowed money) convinced prices only go up!',
+                    winner: 'Refuses to chase overvalued stocks, rebalances portfolio, and raises cash.'
+                }
+            },
+            {
+                priceY: 0.42,
+                ar: {
+                    name: '4. القلق والإنكار (Anxiety & Denial)',
+                    desc: 'السوق يبدأ بالهبوط بعد تضخم الأسعار، وتبدأ الخسائر بالظهور في محافظ المشترين في القمة.',
+                    loser: 'يقول لنفسه: "مجرد تصحيح بسيط وسيرتفع غداً" ويشتري المزيد في أسهم مضاربية خاسرة.',
+                    winner: 'يراقب بهدوء لأن محفظته متنوعة ولا تحتوي على أسهم فقاعات.'
+                },
+                en: {
+                    name: '4. Anxiety & Denial',
+                    desc: 'The market rolls over and drops sharply from the peak; late buyers see red in their portfolios.',
+                    loser: 'Insists "it is just a tiny dip" and averages down on fundamentally broken hype stocks.',
+                    winner: 'Remains calm because their portfolio holds resilient businesses and cash reserves.'
+                }
+            },
+            {
+                priceY: 0.68,
+                ar: {
+                    name: '5. الخوف والذعر (Fear & Panic)',
+                    desc: 'الهبوط يتسارع والأخبار السلبية تملأ الشاشات عن انهيار الاقتصاد.',
+                    loser: 'يشعر بالتوتر الشديد ولا يستطيع النوم، ويفكر في بيع كل شيء لإنقاذ ما تبقى.',
+                    winner: 'يبدأ بتجهيز قائمة الشركات الممتازة التي أصبحت أسعارها رخيصة ومغرية.'
+                },
+                en: {
+                    name: '5. Fear & Panic',
+                    desc: 'Selling accelerates and alarming headlines dominate financial news.',
+                    loser: 'Loses sleep watching the screen every minute, overwhelmed by fear.',
+                    winner: 'Reviews watchlist of high-quality companies now trading at steep discounts.'
+                }
+            },
+            {
+                priceY: 0.85,
+                ar: {
+                    name: '6. الاستسلام واليأس (Capitulation - القاع)',
+                    desc: 'السوق يصل إلى القاع، الأسعار رخيصة جداً مقارنة بقيمتها الحقيقية، والتشاؤم يسيطر على الجميع.',
+                    loser: 'يبيع كل أسهمه بخسارة فادحة في القاع ويقسم ألا يدخل سوق الأسهم مرة أخرى!',
+                    winner: 'يشتري بقوة عندما يكون الجميع خائفين، مستفيداً من الأسعار التاريخية في القاع.'
+                },
+                en: {
+                    name: '6. Capitulation & Despair (Market Bottom)',
+                    desc: 'Maximum pessimism. Stocks are dirt cheap relative to intrinsic value.',
+                    loser: 'Sells everything at the very bottom locking in massive losses and quits forever!',
+                    winner: 'Buys aggressively when others are fearful, locking in generational bargains.'
+                }
+            },
+            {
+                priceY: 0.58,
+                ar: {
+                    name: '7. الأمل والتعافي (Hope & Recovery)',
+                    desc: 'السوق يعاود الصعود بهدوء وتبدأ الشركات القوية بتحقيق أرباح قياسية جديدة.',
+                    loser: 'ما زال خارج السوق خائفاً وينتظر حتى تعود الأسعار للقمة ليشتري متأخراً مرة أخرى!',
+                    winner: 'يحصد ثمار صبره وانضباطه مع نمو محفظته وتراكم التوزيعات.'
+                },
+                en: {
+                    name: '7. Hope & Recovery',
+                    desc: 'The market quietly climbs a wall of worry and strong businesses post new earnings growth.',
+                    loser: 'Stays on the sidelines traumatized, waiting until prices hit a new peak to buy late again!',
+                    winner: 'Reaps massive compounding gains from shares bought during the downturn.'
+                }
+            },
+            {
+                priceY: 0.30,
+                ar: {
+                    name: '8. النمو المستدام وبناء الثروة (Long-Term Wealth)',
+                    desc: 'على المدى الطويل، السوق يكافئ الصابرين الذين يمتلكون أصولاً حقيقية ويلتزمون بإدارة المخاطر.',
+                    loser: 'يكرر نفس الأخطاء العاطفية ما لم يغير عقليته ويتعلم قواعد الاستثمار.',
+                    winner: 'يحقق الحرية المالية بفضل الانضباط، التنويع، واستغلال العائد المركب.'
+                },
+                en: {
+                    name: '8. Sustainable Long-Term Wealth',
+                    desc: 'Over the long run, the market rewards patient owners of productive businesses.',
+                    loser: 'Repeats the emotional cycle unless they adopt a disciplined investment plan.',
+                    winner: 'Builds lasting wealth through patience, diversification, and compounding.'
+                }
+            }
+        ];
+
+        const quizQuestions = [
+            {
+                id: 'q1',
+                ar: {
+                    q: '1. رأيت سهماً ارتفع بنسبة 150% خلال أسبوعين والجميع يتحدث عنه في وسائل التواصل الاجتماعي، ماذا تفعل؟',
+                    options: [
+                        { text: 'أدخل فوراً بكل السيولة حتى لا تفوتني الفرصة (FOMO)', score: 0 },
+                        { text: 'أشتري بمبلغ بسيط بدون دراسة فقط للتجربة', score: 1 },
+                        { text: 'لا أشتري بناءً على الضجيج، وأحلل القوائم المالية والقيمة العادلة أولاً', score: 2 }
+                    ]
+                },
+                en: {
+                    q: '1. You see a stock up 150% in two weeks and everyone on social media is hyping it. What do you do?',
+                    options: [
+                        { text: 'Go all-in immediately so I don’t miss out (FOMO)', score: 0 },
+                        { text: 'Buy a small amount blindly just to test my luck', score: 1 },
+                        { text: 'Ignore the hype and analyze the fundamentals and valuation first', score: 2 }
+                    ]
+                }
+            },
+            {
+                id: 'q2',
+                ar: {
+                    q: '2. هبط سوق الأسهم العام بنسبة 15% بسبب أخبار اقتصادية مؤقتة، لكن الشركات التي تمتلكها قوية ورابحة، كيف تتصرف؟',
+                    options: [
+                        { text: 'أبيع كل شيء فوراً بخسارة خوفاً من مزيد من الهبوط', score: 0 },
+                        { text: 'أغلق الشاشة وأتوقف عن الاستثمار الشهري حتى يهدأ السوق تماماً', score: 1 },
+                        { text: 'ألتزم بخطتي وأستغل الهبوط لشراء حصص إضافية بأسعار مخفضة (DCA)', score: 2 }
+                    ]
+                },
+                en: {
+                    q: '2. The broad market drops 15% on macro news, but your companies remain fundamentally strong. How do you react?',
+                    options: [
+                        { text: 'Panic sell everything immediately to stop the pain', score: 0 },
+                        { text: 'Freeze and pause my monthly investment plan out of fear', score: 1 },
+                        { text: 'Stick to my plan and buy more quality shares at a discount (DCA)', score: 2 }
+                    ]
+                }
+            },
+            {
+                id: 'q3',
+                ar: {
+                    q: '3. ما هي طبيعة الأموال التي تستثمرها في سوق الأسهم؟',
+                    options: [
+                        { text: 'قروض بنكية أو رافعة مالية (Margin) أو أموال أحتاجها بعد شهرين', score: 0 },
+                        { text: 'نصفها مدخرات طوارئ والنصف الآخر فائض', score: 1 },
+                        { text: 'فائض مالي لا أحتاجه لمعيشتي لمدة 3 إلى 5 سنوات على الأقل، مع وجود صندوق طوارئ منفصل', score: 2 }
+                    ]
+                },
+                en: {
+                    q: '3. Where does the money you invest in the stock market come from?',
+                    options: [
+                        { text: 'Bank loans, margin leverage, or rent money needed next month', score: 0 },
+                        { text: 'Half emergency savings and half surplus cash', score: 1 },
+                        { text: '100% surplus capital I won’t need for 3–5+ years, after keeping a separate emergency fund', score: 2 }
+                    ]
+                }
+            },
+            {
+                id: 'q4',
+                ar: {
+                    q: '4. كيف توزع استثماراتك داخل المحفظة؟',
+                    options: [
+                        { text: 'أضع كامل المبلغ في سهم واحد فقط طمعاً في مضاعفة سريعة', score: 0 },
+                        { text: 'أشتري سهمين أو ثلاثة في نفس القطاع فقط', score: 1 },
+                        { text: 'أنوّع بين قطاعات مختلفة أو صناديق المؤشرات مع تحديد نسبة مخاطرة لكل مركز', score: 2 }
+                    ]
+                },
+                en: {
+                    q: '4. How do you allocate capital across your portfolio?',
+                    options: [
+                        { text: '100% in a single stock hoping for a quick home run', score: 0 },
+                        { text: '2 or 3 stocks all in the exact same sector', score: 1 },
+                        { text: 'Diversified across strong sectors or index funds with strict position sizing', score: 2 }
+                    ]
+                }
+            },
+            {
+                id: 'q5',
+                ar: {
+                    q: '5. ما هو هدفك الزمني وتوقعاتك من سوق الأسهم؟',
+                    options: [
+                        { text: 'تحقيق ربح 100% كل شهر من المضاربة اليومية السريعة', score: 0 },
+                        { text: 'الربح السريع خلال بضعة أسابيع بدون خطة مكتوبة', score: 1 },
+                        { text: 'بناء ثروة تراكمية مستدامة على مدى سنوات عبر العائد المركب والانضباط', score: 2 }
+                    ]
+                },
+                en: {
+                    q: '5. What is your return expectation and time horizon in the stock market?',
+                    options: [
+                        { text: 'Doubling my money every month through day trading', score: 0 },
+                        { text: 'Quick gains in a few weeks without a written plan', score: 1 },
+                        { text: 'Building sustainable long-term wealth over years through compounding', score: 2 }
+                    ]
+                }
+            }
+        ];
+
+        function renderReasons() {
+            const grid = document.getElementById('reasons-grid');
+            const dict = i18n[currentLang];
+            const filtered = currentFilter === 'all'
+                ? reasonsData
+                : reasonsData.filter(r => r.category === currentFilter);
+
+            grid.innerHTML = filtered.map(item => {
+                const content = item[currentLang];
+                return `
+                    <div class="group rounded-3xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl">
+                                    <i class="fa-solid ${item.icon}"></i>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">
+                                        ${dict.impactLabel} ${item.danger}
+                                    </span>
+                                </div>
+                            </div>
+                            <h4 class="text-lg font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-500 transition">
+                                ${content.title}
+                            </h4>
+                            <div class="p-3.5 rounded-2xl bg-rose-500/5 border border-rose-500/20 text-xs sm:text-sm space-y-1">
+                                <div class="font-bold text-rose-500 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span>${dict.trapLabel}</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">${content.trap}</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-xs sm:text-sm space-y-1">
+                            <div class="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>${dict.solutionLabel}</span>
+                            </div>
+                            <p class="text-slate-700 dark:text-slate-200 leading-relaxed">${content.solution}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterReasons(category) {
+            currentFilter = category;
+            document.querySelectorAll('.reason-filter').forEach(btn => {
+                btn.className = 'reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition';
+            });
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.className = 'reason-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white transition shadow-md shadow-emerald-600/20';
+            }
+            renderReasons();
+        }
+
+        function renderComparisonTable() {
+            const tbody = document.getElementById('comparison-tbody');
+            tbody.innerHTML = comparisonRows.map(row => {
+                const c = row[currentLang];
+                return `
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                        <td class="py-4 px-4 font-bold text-slate-900 dark:text-white">${c.aspect}</td>
+                        <td class="py-4 px-4 text-slate-600 dark:text-slate-300">
+                            <span class="inline-flex items-center gap-1.5 text-rose-500 font-medium">
+                                <i class="fa-solid fa-xmark"></i> ${c.loser}
+                            </span>
+                        </td>
+                        <td class="py-4 px-4 text-slate-600 dark:text-slate-300">
+                            <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
+                                <i class="fa-solid fa-check"></i> ${c.winner}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function drawCycleCanvas() {
+            const canvas = document.getElementById('cycleCanvas');
+            if (!canvas) return;
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width - 32;
+            canvas.height = rect.height - 32;
+
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            // Subtle Grid Lines
+            ctx.strokeStyle = 'rgba(148, 163, 184, 0.12)';
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 4; i++) {
+                const y = (h / 5) * i;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+                ctx.stroke();
+            }
+
+            // Intrinsic Value Trendline (Dashed Green)
+            ctx.save();
+            ctx.setLineDash([6, 6]);
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(30, h * 0.72);
+            ctx.lineTo(w - 30, h * 0.35);
+            ctx.stroke();
+            ctx.restore();
+
+            // Calculate Points for the 8 Stages
+            const points = cycleStages.map((st, idx) => {
+                const x = 40 + (idx / (cycleStages.length - 1)) * (w - 80);
+                const y = st.priceY * h;
+                return { x, y };
+            });
+
+            // Smooth Gradient Curve
+            const grad = ctx.createLinearGradient(0, 0, w, 0);
+            grad.addColorStop(0, '#10b981');
+            grad.addColorStop(0.35, '#f59e0b');
+            grad.addColorStop(0.5, '#ef4444');
+            grad.addColorStop(0.75, '#3b82f6');
+            grad.addColorStop(1, '#10b981');
+
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 0; i < points.length - 1; i++) {
+                const xc = (points[i].x + points[i + 1].x) / 2;
+                const yc = (points[i].y + points[i + 1].y) / 2;
+                ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+            }
+            ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+            ctx.stroke();
+
+            // Draw Interactive Stage Nodes
+            points.forEach((pt, idx) => {
+                const isSelected = idx === parseInt(currentStageIndex);
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, isSelected ? 10 : 6, 0, Math.PI * 2);
+                ctx.fillStyle = isSelected ? '#f59e0b' : '#1e293b';
+                ctx.fill();
+                ctx.lineWidth = isSelected ? 3 : 2;
+                ctx.strokeStyle = isSelected ? '#ffffff' : '#94a3b8';
+                ctx.stroke();
+
+                if (isSelected) {
+                    // Highlight Halo
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 18, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(245, 158, 11, 0.22)';
+                    ctx.fill();
+                }
+            });
+        }
+
+        function updateSimulatorStage(index) {
+            currentStageIndex = parseInt(index);
+            const slider = document.getElementById('cycle-slider');
+            if (slider) slider.value = currentStageIndex;
+
+            const stage = cycleStages[currentStageIndex][currentLang];
+            document.getElementById('sim-stage-name').textContent = stage.name;
+            document.getElementById('sim-stage-desc').textContent = stage.desc;
+            document.getElementById('sim-loser-action').textContent = stage.loser;
+            document.getElementById('sim-winner-action').textContent = stage.winner;
+
+            drawCycleCanvas();
+        }
+
+        function playCycleAnimation() {
+            const dict = i18n[currentLang];
+            const btnText = document.getElementById('sim-play-text');
+            if (simInterval) {
+                clearInterval(simInterval);
+                simInterval = null;
+                btnText.textContent = dict.simPlayText;
+                return;
+            }
+            btnText.textContent = dict.simStopText;
+            simInterval = setInterval(() => {
+                let next = (currentStageIndex + 1) % cycleStages.length;
+                updateSimulatorStage(next);
+            }, 2200);
+        }
+
+        function resetCycleSimulator() {
+            if (simInterval) {
+                clearInterval(simInterval);
+                simInterval = null;
+            }
+            document.getElementById('sim-play-text').textContent = i18n[currentLang].simPlayText;
+            updateSimulatorStage(2);
+        }
+
+        function updateRiskCalculators() {
+            const capital = parseFloat(document.getElementById('calc-capital').value);
+            const lossPct = parseFloat(document.getElementById('calc-loss').value);
+            const monthly = parseFloat(document.getElementById('calc-monthly').value);
+            const years = parseInt(document.getElementById('calc-years').value);
+
+            // 1. Drawdown Recovery Math
+            const remaining = capital * (1 - lossPct / 100);
+            const requiredGain = ((capital / remaining) - 1) * 100;
+
+            document.getElementById('capital-val').textContent = `$${capital.toLocaleString()}`;
+            document.getElementById('loss-pct-val').textContent = `${lossPct}%`;
+            document.getElementById('remaining-val').textContent = `$${Math.round(remaining).toLocaleString()}`;
+            document.getElementById('required-gain-val').textContent = `+${requiredGain.toFixed(1)}%`;
+
+            const lossShare = Math.min(85, Math.max(15, (lossPct / (lossPct + requiredGain)) * 100));
+            document.getElementById('loss-bar').style.width = `${lossShare}%`;
+            document.getElementById('recovery-bar').style.width = `${100 - lossShare}%`;
+
+            const insightEl = document.getElementById('calc1-insight');
+            if (currentLang === 'ar') {
+                insightEl.textContent = `عندما تخسر ${lossPct}% من رأس مالك، فإنك لا تحتاج إلى ${lossPct}% لتعويضها، بل تحتاج إلى ربح قدره +${requiredGain.toFixed(1)}% على المبلغ المتبقي ($${Math.round(remaining).toLocaleString()}) فقط لتعود لنقطة البداية!`;
+            } else {
+                insightEl.textContent = `When you lose ${lossPct}% of your portfolio, you don't need a ${lossPct}% gain to recover—you need a massive +${requiredGain.toFixed(1)}% return on your remaining $${Math.round(remaining).toLocaleString()} just to break even!`;
+            }
+
+            // 2. DCA vs Emotional Speculator Math
+            document.getElementById('monthly-val').textContent = `$${monthly.toLocaleString()}`;
+            document.getElementById('years-val').textContent = currentLang === 'ar' ? `${years} سنوات` : `${years} Years`;
+
+            const months = years * 12;
+            const rPatient = 0.10 / 12;
+            const fvPatient = monthly * ((Math.pow(1 + rPatient, months) - 1) / rPatient);
+
+            const rEmotional = -0.025 / 12;
+            const fvEmotional = monthly * ((Math.pow(1 + rEmotional, months) - 1) / rEmotional);
+            const totalInvested = monthly * months;
+
+            document.getElementById('patient-investor-val').textContent = `$${Math.round(fvPatient).toLocaleString()}`;
+            document.getElementById('emotional-trader-val').textContent = `$${Math.round(fvEmotional).toLocaleString()}`;
+
+            const diff = Math.round(fvPatient - fvEmotional);
+            const summaryEl = document.getElementById('calc2-summary');
+            if (currentLang === 'ar') {
+                summaryEl.textContent = `إجمالي المبلغ المستثمر من جيبك هو $${totalInvested.toLocaleString()}. بفضل الانضباط والعائد المركب، يتفوق المستثمر الصبور بفارق +$${diff.toLocaleString()} عن المضارب المتسرع!`;
+            } else {
+                summaryEl.textContent = `Total out-of-pocket contributions: $${totalInvested.toLocaleString()}. Through patience and compounding, the disciplined investor finishes ahead by +$${diff.toLocaleString()}!`;
+            }
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions-container');
+            container.innerHTML = quizQuestions.map((qItem, idx) => {
+                const content = qItem[currentLang];
+                const selectedScore = quizAnswers[qItem.id];
+
+                return `
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">${content.q}</h4>
+                        <div class="space-y-2">
+                            ${content.options.map((opt, optIdx) => {
+                                const isChecked = selectedScore === opt.score;
+                                return `
+                                    <button onclick="selectQuizOption('${qItem.id}', ${opt.score})"
+                                        class="w-full text-start px-4 py-3 rounded-xl text-xs sm:text-sm font-medium border transition flex items-center justify-between gap-3 ${
+                                            isChecked
+                                                ? 'bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 font-bold'
+                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300'
+                                        }">
+                                        <span>${opt.text}</span>
+                                        <i class="fa-solid ${isChecked ? 'fa-circle-check text-emerald-500' : 'fa-circle text-slate-300 dark:text-slate-700'}"></i>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            evaluateQuizResult();
+        }
+
+        function selectQuizOption(qId, score) {
+            quizAnswers[qId] = score;
+            renderQuiz();
+        }
+
+        function evaluateQuizResult() {
+            const resultBox = document.getElementById('quiz-result-box');
+            const answeredCount = Object.keys(quizAnswers).length;
+            if (answeredCount < quizQuestions.length) {
+                resultBox.classList.add('hidden');
+                return;
+            }
+
+            const totalScore = Object.values(quizAnswers).reduce((a, b) => a + b, 0);
+            resultBox.classList.remove('hidden');
+
+            let badge, title, advice, colorClass;
+            if (totalScore >= 8) {
+                colorClass = 'bg-emerald-500/10 border-emerald-500/40 text-emerald-600 dark:text-emerald-400';
+                badge = currentLang === 'ar' ? 'مستثمر واعٍ ومنضبط (الأقلية الرابحة)' : 'Disciplined Smart Investor (Winning Minority)';
+                title = currentLang === 'ar' ? `نتيجتك: ${totalScore} من 10 — عقلية استثمارية ممتازة!` : `Your Score: ${totalScore}/10 — Strong Investor Mindset!`;
+                advice = currentLang === 'ar'
+                    ? 'أنت تمتلك الوعي المالي والانضباط النفسي اللازمين للنجاح في سوق الأسهم على المدى الطويل. استمر في التنويع، الشراء المنتظم، وتجاهل ضجيج المضاربات.'
+                    : 'You possess the emotional discipline and risk awareness needed to succeed long-term. Keep diversifying, investing consistently, and ignoring short-term noise.';
+            } else if (totalScore >= 5) {
+                colorClass = 'bg-amber-500/10 border-amber-500/40 text-amber-600 dark:text-amber-400';
+                badge = currentLang === 'ar' ? 'مستثمر متردد (خطر متوسط)' : 'Mixed Mindset (Moderate Risk)';
+                title = currentLang === 'ar' ? `نتيجتك: ${totalScore} من 10 — تحتاج لضبط خطتك النفسية!` : `Your Score: ${totalScore}/10 — Strengthen Your Rules!`;
+                advice = currentLang === 'ar'
+                    ? 'لديك بعض المفاهيم الصحيحة، لكنك قد تقع ضحية للخوف أو الطمع وقت تقلبات السوق الحادة. التزم بخطة مكتوبة ولا تستثمر أموالاً تحتاجها قريباً.'
+                    : 'You understand the basics, but sharp market swings could still trigger emotional mistakes. Commit to a written plan and automate your investments.';
+            } else {
+                colorClass = 'bg-rose-500/10 border-rose-500/40 text-rose-600 dark:text-rose-400';
+                badge = currentLang === 'ar' ? 'معرض للخسارة العالية (مضارب عاطفي)' : 'High Loss Vulnerability (Emotional Speculator)';
+                title = currentLang === 'ar' ? `نتيجتك: ${totalScore} من 10 — حذارِ! أنت تتبع سلوك الأغلبية الخاسرة` : `Your Score: ${totalScore}/10 — Warning! High Risk of Loss`;
+                advice = currentLang === 'ar'
+                    ? 'قراراتك الحالية تعتمد على الاندفاع، التوصيات العشوائية، أو الأموال المقترضة. راجع الأسباب الـ 7 في هذا التطبيق قبل المخاطرة بأي أموال حقيقية.'
+                    : 'Your current approach relies on FOMO, hype, or poor risk control. Review the 7 traps carefully before risking capital in the market.';
+            }
+
+            resultBox.className = `p-6 rounded-2xl border-2 transition-all ${colorClass}`;
+            resultBox.innerHTML = `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-white/60 dark:bg-slate-900/60 w-fit">${badge}</span>
+                    <span class="text-lg font-black">${title}</span>
+                </div>
+                <p class="text-sm text-slate-700 dark:text-slate-200 mt-3 leading-relaxed">${advice}</p>
+            `;
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            renderQuiz();
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
+            document.getElementById(`tab-btn-${tabId}`).classList.add('tab-active');
+
+            if (tabId === 'simulator') {
+                setTimeout(() => updateSimulatorStage(currentStageIndex), 50);
+            }
+        }
+
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon text-lg text-slate-700';
+            } else {
+                htmlEl.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-lg text-amber-400';
+            }
+            drawCycleCanvas();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlEl = document.documentElement;
+            htmlEl.lang = currentLang;
+            htmlEl.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            const d = i18n[currentLang];
+            document.getElementById('nav-title').textContent = d.navTitle;
+            document.getElementById('watch-yt-btn').textContent = d.watchYtBtn;
+            document.getElementById('lang-label').textContent = d.langLabel;
+            document.getElementById('hero-badge').textContent = d.heroBadge;
+            document.getElementById('hero-title').innerHTML = d.heroTitle;
+            document.getElementById('hero-desc').textContent = d.heroDesc;
+            document.getElementById('stat-1-label').textContent = d.stat1;
+            document.getElementById('stat-2-label').textContent = d.stat2;
+            document.getElementById('stat-3-label').textContent = d.stat3;
+            document.getElementById('video-caption').textContent = d.videoCaption;
+            document.getElementById('open-direct-link').textContent = d.openDirectLink;
+
+            document.getElementById('tab-reasons-text').textContent = d.tabReasons;
+            document.getElementById('tab-simulator-text').textContent = d.tabSimulator;
+            document.getElementById('tab-calculator-text').textContent = d.tabCalculator;
+            document.getElementById('tab-quiz-text').textContent = d.tabQuiz;
+
+            document.getElementById('reasons-heading').textContent = d.reasonsHeading;
+            document.getElementById('reasons-subheading').textContent = d.reasonsSubheading;
+            document.getElementById('filter-all').textContent = d.filterAll;
+            document.getElementById('filter-psychology').textContent = d.filterPsych;
+            document.getElementById('filter-strategy').textContent = d.filterStrat;
+            document.getElementById('filter-risk').textContent = d.filterRisk;
+
+            document.getElementById('comparison-title').querySelector('span').textContent = d.comparisonTitle;
+            document.getElementById('th-aspect').textContent = d.thAspect;
+            document.getElementById('th-loser').textContent = d.thLoser;
+            document.getElementById('th-winner').textContent = d.thWinner;
+
+            document.getElementById('sim-badge').textContent = d.simBadge;
+            document.getElementById('sim-title').textContent = d.simTitle;
+            document.getElementById('sim-desc').textContent = d.simDesc;
+            document.getElementById('sim-play-text').textContent = simInterval ? d.simStopText : d.simPlayText;
+            document.getElementById('stage-start-label').textContent = d.stageStart;
+            document.getElementById('stage-peak-label').textContent = d.stagePeak;
+            document.getElementById('stage-bottom-label').textContent = d.stageBottom;
+            document.getElementById('stage-end-label').textContent = d.stageEnd;
+            document.getElementById('sim-card1-label').textContent = d.simCard1;
+            document.getElementById('sim-card2-label').textContent = d.simCard2;
+            document.getElementById('sim-card3-label').textContent = d.simCard3;
+
+            document.getElementById('calc1-badge').textContent = d.calc1Badge;
+            document.getElementById('calc1-title').textContent = d.calc1Title;
+            document.getElementById('calc1-desc').textContent = d.calc1Desc;
+            document.getElementById('capital-label').textContent = d.capitalLabel;
+            document.getElementById('loss-pct-label').textContent = d.lossPctLabel;
+            document.getElementById('remaining-label').textContent = d.remainingLabel;
+            document.getElementById('required-gain-label').textContent = d.requiredGainLabel;
+            document.getElementById('bar-loss-label').textContent = d.barLossLabel;
+            document.getElementById('bar-recovery-label').textContent = d.barRecoveryLabel;
+
+            document.getElementById('calc2-badge').textContent = d.calc2Badge;
+            document.getElementById('calc2-title').textContent = d.calc2Title;
+            document.getElementById('calc2-desc').textContent = d.calc2Desc;
+            document.getElementById('monthly-label').textContent = d.monthlyLabel;
+            document.getElementById('years-label').textContent = d.yearsLabel;
+            document.getElementById('patient-investor-label').textContent = d.patientLabel;
+            document.getElementById('patient-investor-sub').textContent = d.patientSub;
+            document.getElementById('emotional-trader-label').textContent = d.emotionalLabel;
+            document.getElementById('emotional-trader-sub').textContent = d.emotionalSub;
+
+            document.getElementById('quiz-badge').textContent = d.quizBadge;
+            document.getElementById('quiz-title').textContent = d.quizTitle;
+            document.getElementById('quiz-reset-btn').textContent = d.quizResetBtn;
+            document.getElementById('footer-channel').textContent = d.footerChannel;
+
+            renderReasons();
+            renderComparisonTable();
+            updateSimulatorStage(currentStageIndex);
+            updateRiskCalculators();
+            renderQuiz();
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderReasons();
+            renderComparisonTable();
+            updateSimulatorStage(2);
+            updateRiskCalculators();
+            renderQuiz();
+
+            window.addEventListener('resize', () => {
+                drawCycleCanvas();
+            });
+        });
+    </script>
+</body>
+</html>
